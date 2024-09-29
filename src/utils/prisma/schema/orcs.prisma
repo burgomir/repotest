@@ -1,0 +1,6 @@
+model Orcs {
+  id          String        @id @default(uuid())
+  // playersOrcs PlayersOrcs[]
+
+  @@map("orcs")
+}

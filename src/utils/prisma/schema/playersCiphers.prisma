@@ -1,0 +1,11 @@
+model PlayersCiphers {
+  playerId   String
+  cipherId   String
+  usedAt     DateTime
+
+  player     Players        @relation(fields: [playerId], references: [id])
+  cipher     Cipher         @relation(fields: [cipherId], references: [id])
+
+  @@id([playerId, cipherId])
+  @@map("players_ciphers")
+}

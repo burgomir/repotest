@@ -1,0 +1,9 @@
+model Referrals {
+    id         String    @id @default(uuid())
+    createdAt  DateTime? @default(now()) @map("created_at")
+    referrerId String    @map("referrer_id")
+    referralId String    @map("referral_id")
+    players    Players?  @relation(fields: [referralId], references: [id], onDelete: Cascade)
+
+    @@map("referrals")
+}

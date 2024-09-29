@@ -1,0 +1,12 @@
+model PlayersOrcs {
+    id           String    @id @default(uuid())
+    user         Players   @relation(fields: [playerId], references: [id], onDelete: Cascade)
+    playerId     String    @unique() @map("player_id")
+    // orc          Orcs?     @relation(fields: [orcId], references: [id])
+    // orcId        String?   @map("orc_id")
+    bossStreak   Int?      @default(0)
+    lastBossDate DateTime? @map("last_boss_date")
+    hp           Int
+
+    @@map("players_orcs")
+}

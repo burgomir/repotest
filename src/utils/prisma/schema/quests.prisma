@@ -1,0 +1,15 @@
+model Quests {
+    id            String          @id @default(uuid())
+    link          String
+    reward        Float
+    terms         String
+    description   String
+    totalLimit    Int             @default(0)
+    currentLimit  Int             @default(0)
+    
+    media         Media?
+    playersQuests PlayersQuests[]
+    questTasks    QuestTask[]     // Новое отношение
+
+    @@map("quests")
+}

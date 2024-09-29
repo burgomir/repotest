@@ -1,0 +1,13 @@
+model PlayersTasks {
+    id             String         @id @default(uuid())
+    playerId       String         @map("player_id")
+    taskId         String         @map("task_id")
+    isCompleted    Boolean        @map("is_completed")
+    completedAt    DateTime?      @map("completed_at")
+    createdAt      DateTime?      @map("created_at")
+    
+    task           QuestTask      @relation(fields: [taskId], references: [id], onDelete: Cascade)
+    player         Players        @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+    @@map("players_tasks")
+}

@@ -1,0 +1,6 @@
+model Bonuses {
+    id            String          @id @default(uuid())
+    playerBonuses PlayerBonuses[]
+
+    @@map("bonuses")
+}

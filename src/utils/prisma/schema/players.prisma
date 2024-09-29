@@ -1,0 +1,37 @@
+model Players {
+  id                    String                  @id @default(uuid())
+  honeyLatest           Float                   @default(0) @map("honey_latest")
+  honeyMax              Float                   @default(0) @map("honey_max")
+  balance               Float                   @default(0)
+  balance_nctr          Float                   @default(0)
+  balance_crystal       Float                   @default(0)
+  totalReferralProfit   Float                   @default(0) @map("total_referral_profit")
+  lastLogin             DateTime?               @map("last_login")
+  lastLogout            DateTime?               @map("last_logout")
+  levelId               String?                 @map("level_id")
+  referredById          String?                 @map("referred_by_id")
+  tgId                  String                  @map("tg_id")
+  isPremium             Boolean                 @map("is_premium")
+  userName              String                  @map("user_name")
+  nickName              String?                 @map("nick_name")
+  createdAt             DateTime?               @default(now()) @map("created_at")
+  farmingDate           DateTime?               @map("farming_date")
+  farmingEndDate        DateTime?               @map("farming_end_date")
+  
+  referralsEarlyBonuses ReferralsEarlyBonuses[]
+  token                 PlayerTokens?
+  playerBonuses         PlayerBonuses[]
+  playersOrcs           PlayersOrcs?
+  playersTasks          PlayersTasks[]
+  playersQuests         PlayersQuests[]
+  referralsProfit       ReferralsProfit?
+  referralsQuestProfit  ReferralsQuestProfit[]
+  referrals             Referrals[]
+  playerRanks           PlayerRanks[]
+  playerProgress        PlayerProgress[]
+  playersCiphers        PlayersCiphers[]
+  playerRankProfit      PlayerRankProfit[]
+  profit                Profit[]
+
+  @@map("players")
+}

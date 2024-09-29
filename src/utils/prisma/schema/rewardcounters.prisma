@@ -1,0 +1,19 @@
+model RewardCounters {
+  id              Int       @id @default(autoincrement())
+  legendary       Int       @default(0)
+  rare            Int       @default(0)
+  common          Int       @default(0)
+
+  maxLegendary    Int       @default(1)
+  maxRare         Int       @default(2)
+  maxCommon       Int       @default(10)
+
+  maxNctr         Int       @default(50)
+  maxCrystal      Int       @default(100)
+
+  interval        Json
+
+  updatedAt       DateTime  @updatedAt
+
+  @@map("reward_counters")
+}

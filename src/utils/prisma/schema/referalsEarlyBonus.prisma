@@ -1,0 +1,15 @@
+model ReferralsEarlyBonuses {
+    id          String       @id @default(uuid())
+    accountType AccountType? @map("account_type")
+    honey       Float
+    multiplier  Float?
+    player      Players?     @relation(fields: [playerId], references: [id], onDelete: Cascade)
+    playerId    String?      @map("player_id")
+
+    @@map("referrals_early_bonuses")
+}
+
+enum AccountType {
+    PREMIUM
+    COMMON
+}

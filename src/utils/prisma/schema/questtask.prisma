@@ -1,0 +1,19 @@
+model QuestTask {
+    id            String          @id @default(uuid())
+    questId       String          @map("quest_id")
+    description   String
+    link          String
+    
+    quest         Quests          @relation(fields: [questId], references: [id], onDelete: Cascade)
+    type          TaskType
+    playersTasks  PlayersTasks[]
+
+    @@map("quest_tasks")
+}
+
+enum TaskType {
+    SUBSCRIBE_TELEGRAM
+    SUBSCRIBE_PARTNER
+    COMMENT_GROUP
+    OTHER
+}

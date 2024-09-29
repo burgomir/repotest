@@ -1,0 +1,14 @@
+model PlayerProgress {
+    id       String       @id @default(uuid())
+    progress Float
+    type     progressType
+    playerId String       @map("player_id")
+    player   Players      @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+    @@map("player_progress")
+}
+
+enum progressType {
+    Referral 
+    Rank
+}

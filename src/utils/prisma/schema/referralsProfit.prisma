@@ -1,0 +1,8 @@
+model ReferralsProfit {
+    id       String  @id @default(uuid())
+    honey    Float
+    playerId String  @unique() @map("player_id")
+    player   Players @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+    @@map("referrals_profit")
+}

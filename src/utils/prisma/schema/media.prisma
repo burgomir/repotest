@@ -1,0 +1,20 @@
+model Media {
+    id           String    @id() @default(uuid())
+    fileName     String    @map("file_name")
+    filePath     String    @map("file_path")
+    size         String
+    mimeType     String    @map("mime_type")
+    originalName String    @map("original_name")
+    fileType     FileType  @map("file_type")
+    questId      String?   @unique @map("quest_id")
+    createdAt    DateTime? @default(now()) @map("created_at")
+    updatedAt    DateTime? @updatedAt @map("updated_at")
+    quests       Quests?   @relation(fields: [questId], references: [id])
+
+    @@map("medias")
+}
+
+enum FileType {
+    VIDEO
+    IMAGE
+}

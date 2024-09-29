@@ -1,0 +1,10 @@
+model PlayerBonuses {
+    id        String  @id @default(uuid())
+    player    Players @relation(fields: [playerId], references: [id], onDelete: Cascade)
+    playerId  String  @map("player_id")
+    bonus     Bonuses @relation(fields: [bonusId], references: [id])
+    bonusId   String  @map("bonus_id")
+    available Boolean
+
+    @@map("player_bonuses")
+}

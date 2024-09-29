@@ -1,0 +1,10 @@
+model ReferralsQuest {
+    id                   String                 @id @default(uuid())
+    referralCount        Int                    @map("referral_count")
+    reward               Float
+    description          String
+    level                Int
+    referralsQuestProfit ReferralsQuestProfit[]
+
+    @@map("referrals_quests")
+}

@@ -1,0 +1,12 @@
+model Ranks {
+    id               String             @id @default(uuid())
+    bonusAmount      Float              @map("bonus_amount")
+    description      String
+    rank             Int
+    name             String
+    requiredAmount   Float              @map("required_amount")
+    playerRanks      PlayerRanks[]
+    playerRankProfit PlayerRankProfit[]
+
+    @@map("ranks")
+}

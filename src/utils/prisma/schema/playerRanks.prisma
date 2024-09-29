@@ -1,0 +1,10 @@
+model PlayerRanks {
+    id         String   @id @default(uuid())
+    playerId   String   @map("player_id")
+    rankId     String   @map("rank_id")
+    achievedAt DateTime @map("achieved_at")
+    player     Players  @relation(fields: [playerId], references: [id], onDelete: Cascade)
+    rank       Ranks    @relation(fields: [rankId], references: [id], onDelete: Cascade)
+
+    @@map("player_ranks")
+}

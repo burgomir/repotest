@@ -1,0 +1,11 @@
+model PlayerRankProfit {
+    id          String  @id @default(uuid())
+    profit      Float
+    isCollected Boolean @default(false) @map("is_collected")
+    rankId      String? @map("rank_id")
+    playerId    String  @map("player_id")
+    rank        Ranks?  @relation(fields: [rankId], references: [id], onDelete: SetNull)
+    player      Players @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+    @@map("player_rank_profit")
+}

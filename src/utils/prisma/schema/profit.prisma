@@ -1,0 +1,19 @@
+model Profit {
+    id         String     @id @default(uuid())
+    playerId   String     @map("player_id")
+    profit     Float
+    profitType ProfitType @map("profit_type")
+    player     Players    @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+    @@map("profit")
+}
+
+enum ProfitType {
+    quest
+    referralQuest
+    rank
+    referralProfit
+    bossKill
+    click
+    farming
+}

@@ -1,0 +1,12 @@
+model ReferralsQuestProfit {
+    id               String         @id @default(uuid())
+    referralCount    Int            @map("referral_count")
+    reward           Float
+    claimed          Boolean        @default(false)
+    playerId         String         @map("player_id")
+    referralsQuestId String         @map("referral_quest_id")
+    player           Players        @relation(fields: [playerId], references: [id], onDelete: Cascade)
+    referralQuest    ReferralsQuest @relation(fields: [referralsQuestId], references: [id], onDelete: NoAction)
+
+    @@map("referrals_quests_profit")
+}
